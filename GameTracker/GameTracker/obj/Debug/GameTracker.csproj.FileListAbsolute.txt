@@ -1,0 +1,15 @@
+C:\Users\MohamedRamadan\Documents\MEGA\Year 4\Winter 2018\SEG 3125\Project\Phase 3\Phase_3_7688825_SEG3125\Code\GameTracker\GameTracker\bin\Debug\GameTracker.exe.config
+C:\Users\MohamedRamadan\Documents\MEGA\Year 4\Winter 2018\SEG 3125\Project\Phase 3\Phase_3_7688825_SEG3125\Code\GameTracker\GameTracker\bin\Debug\GameTracker.exe
+C:\Users\MohamedRamadan\Documents\MEGA\Year 4\Winter 2018\SEG 3125\Project\Phase 3\Phase_3_7688825_SEG3125\Code\GameTracker\GameTracker\bin\Debug\GameTracker.pdb
+C:\Users\MohamedRamadan\Documents\MEGA\Year 4\Winter 2018\SEG 3125\Project\Phase 3\Phase_3_7688825_SEG3125\Code\GameTracker\GameTracker\obj\Debug\GameTracker.csprojResolveAssemblyReference.cache
+C:\Users\MohamedRamadan\Documents\MEGA\Year 4\Winter 2018\SEG 3125\Project\Phase 3\Phase_3_7688825_SEG3125\Code\GameTracker\GameTracker\obj\Debug\MainWindow.g.cs
+C:\Users\MohamedRamadan\Documents\MEGA\Year 4\Winter 2018\SEG 3125\Project\Phase 3\Phase_3_7688825_SEG3125\Code\GameTracker\GameTracker\obj\Debug\App.g.cs
+C:\Users\MohamedRamadan\Documents\MEGA\Year 4\Winter 2018\SEG 3125\Project\Phase 3\Phase_3_7688825_SEG3125\Code\GameTracker\GameTracker\obj\Debug\GameTracker_MarkupCompile.cache
+C:\Users\MohamedRamadan\Documents\MEGA\Year 4\Winter 2018\SEG 3125\Project\Phase 3\Phase_3_7688825_SEG3125\Code\GameTracker\GameTracker\obj\Debug\GameTracker_MarkupCompile.lref
+C:\Users\MohamedRamadan\Documents\MEGA\Year 4\Winter 2018\SEG 3125\Project\Phase 3\Phase_3_7688825_SEG3125\Code\GameTracker\GameTracker\obj\Debug\MainWindow.baml
+C:\Users\MohamedRamadan\Documents\MEGA\Year 4\Winter 2018\SEG 3125\Project\Phase 3\Phase_3_7688825_SEG3125\Code\GameTracker\GameTracker\obj\Debug\GameTracker.g.resources
+C:\Users\MohamedRamadan\Documents\MEGA\Year 4\Winter 2018\SEG 3125\Project\Phase 3\Phase_3_7688825_SEG3125\Code\GameTracker\GameTracker\obj\Debug\GameTracker.Properties.Resources.resources
+C:\Users\MohamedRamadan\Documents\MEGA\Year 4\Winter 2018\SEG 3125\Project\Phase 3\Phase_3_7688825_SEG3125\Code\GameTracker\GameTracker\obj\Debug\GameTracker.csproj.GenerateResource.Cache
+C:\Users\MohamedRamadan\Documents\MEGA\Year 4\Winter 2018\SEG 3125\Project\Phase 3\Phase_3_7688825_SEG3125\Code\GameTracker\GameTracker\obj\Debug\GameTracker.csproj.CoreCompileInputs.cache
+C:\Users\MohamedRamadan\Documents\MEGA\Year 4\Winter 2018\SEG 3125\Project\Phase 3\Phase_3_7688825_SEG3125\Code\GameTracker\GameTracker\obj\Debug\GameTracker.exe
+C:\Users\MohamedRamadan\Documents\MEGA\Year 4\Winter 2018\SEG 3125\Project\Phase 3\Phase_3_7688825_SEG3125\Code\GameTracker\GameTracker\obj\Debug\GameTracker.pdb
