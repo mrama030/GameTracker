@@ -8,7 +8,7 @@ namespace GameTracker
 {
     public enum ProgressStatus { Completed, InProgress, PlanToPlay }
 
-    class TrackedGame
+    public class TrackedGame
     {
         public string listId;
         public string imagePath;
@@ -24,7 +24,7 @@ namespace GameTracker
         // Constructor
         public TrackedGame(string imagePath, string gameTitle, ProgressStatus progressStatus, string progressNote, int numberOfPlaythroughs, double myRating, string ratingNote, string gameInformation)
         {
-            this.listId = "item" + gameTitle.Trim();
+            this.listId = "item" + gameTitle.Replace(" ", "");
             // Images must be within the project's folder.
             this.imagePath = "/" + imagePath;
             this.gameTitle = gameTitle;

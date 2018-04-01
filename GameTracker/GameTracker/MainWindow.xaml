@@ -8,7 +8,8 @@
         Title="GameTracker 2018" Height="1050" Width="1920">
     <Grid>
         <DockPanel LastChildFill="True">
-            
+
+            <!-- Left Section: Tracked Games List -->
             <Border Width="400" Background="#333333" BorderBrush="#000000" BorderThickness="2" DockPanel.Dock="Left">
                 <StackPanel>
                     <Grid>
@@ -20,23 +21,22 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <Menu Grid.Row="0" Grid.Column="0">
+                        <Menu Grid.Row="0" Grid.Column="0" ToolTip="Main Menu">
                             <MenuItem Background="#333333" BorderThickness="0">
                                 <MenuItem.Header>
-                                    <Image Width="120" Source="/Resources/Menu.png"/>
+                                    <Image Width="120" Source="/Resources/Menu.png" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased"/>
                                 </MenuItem.Header>
-                                <MenuItem Click="mnuAddGameFromDB_Click" Name="mnuAddGameFromDB" FontSize="16" Header="Add Game From Database..."/>
-                                <MenuItem Click="mnuAddGameManually_Click" Name="mnuAddGameManually" FontSize="16" Header="Add Game Manually..."/>
-                                <MenuItem Click="mnuFilter_Click" Name="mnuFilter" FontSize="16" Header="Edit List Filters..."/>
-                                <MenuItem Click="mnuSort_Click" Name="mnuSort" FontSize="16" Header="List Sorting Options..."/>
+                                <MenuItem Click="mnuAddGameFromDB_Click" Name="mnuAddGameFromDB" FontSize="20" Header="Add Game From Database..."/>
+                                <MenuItem Click="mnuAddGameManually_Click" Name="mnuAddGameManually" FontSize="20" Header="Add Game Manually..."/>
+                                <MenuItem Click="mnuFilter_Click" Name="mnuFilter" FontSize="20" Header="Edit List Filters..."/>
+                                <MenuItem Click="mnuSort_Click" Name="mnuSort" FontSize="20" Header="List Sorting Options..."/>
                                 <Separator />
-                                <MenuItem Click="mnuAbout_Click" Name="mnuAbout" FontSize="16" Header="About"/>
-                                <MenuItem Click="mnuHelp_Click" Name="mnuHelp" FontSize="16" Header="Quick Help - How To Use?"/>
+                                <MenuItem Click="mnuAbout_Click" Name="mnuAbout" FontSize="20" Header="About"/>
                             </MenuItem>
                         </Menu>
-                        <TextBox Grid.Row="0" Grid.Column="1" Height="30" Width="220" HorizontalAlignment="Right" FontSize="16"></TextBox>
-                        <Button Name="btnSearch" Click="btnSearch_Click" Background="#ffffff" Grid.Row="0" Grid.Column="2" Width="30" Height="30" HorizontalAlignment="Left">
-                            <Image Height="25" Width="25" Source="/Resources/Search.png"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Height="30" Width="220" HorizontalAlignment="Right" FontSize="16" FontWeight="DemiBold"></TextBox>
+                        <Button Name="btnSearch" Click="btnSearch_Click" Background="#ffffff" Grid.Row="0" Grid.Column="2" Width="30" Height="30" HorizontalAlignment="Left" ToolTip="Search">
+                            <Image Height="25" Width="25" Source="/Resources/Search.png" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased"/>
                         </Button>
                     </Grid>
                     <Grid>
@@ -73,11 +73,19 @@
                         <Label Grid.Row="0" Grid.Column="0" FontSize="18" FontWeight="DemiBold" FontFamily="Sergoe UI" Foreground="#ffffff">Filtered By:</Label>
                         <Button Click="btnClearFilters_Click" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="0" Name="btnClearFilters" Height="30" Width="100" FontSize="16" FontFamily="Sergoe UI" FontWeight="DemiBold" Background="#ffffff">Clear Filters</Button>
                     </Grid>
-                    <Border BorderThickness="3" BorderBrush="#ffffff" Width="355" Margin="0,10,0,0">
-                        <ScrollViewer Width="350" Height="80">
-                            <TextBlock Margin="15,0,0,0" FontSize="18" FontWeight="DemiBold" FontFamily="Sergoe UI" Foreground="#ffffff" Name="txtAppliedFilters">No Filters Selected</TextBlock>
-                        </ScrollViewer>
-                    </Border>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" Grid.Row="0" BorderThickness="3" BorderBrush="#ffffff" Width="355" Margin="0,10,0,0">
+                            <ScrollViewer Width="350" Height="80">
+                                <TextBlock Margin="15,0,0,0" FontSize="18" FontWeight="DemiBold" FontFamily="Sergoe UI" Foreground="#ffffff" Name="txtAppliedFilters">No Filters Selected</TextBlock>
+                            </ScrollViewer>
+                        </Border>
+                    </Grid>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -103,11 +111,107 @@
                     </Grid>
                 </StackPanel>
             </Border>
-            
-            <Grid Background="#333333">
-                <TextBlock Foreground="White" Margin="0,-4,0,4"><Run Text="TRACKED GAME INFO"/></TextBlock>
-            </Grid>
-            
+
+            <!-- Right Section: Game Information -->
+            <Border Background="#333333">
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                        </Grid.RowDefinitions>
+                        <Button Name="btnHelp" Height="53" Width="51" Margin="0,0,0,0" VerticalAlignment="Center" Click="btnHelp_Click" Grid.Row="0" Grid.Column="0" ToolTip="Help">
+                            <Image Height="48" Width="48" Source="/Resources/Help.png" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased" HorizontalAlignment="Center"/>
+                        </Button>
+                        <TextBlock Name="txtTitle" Grid.Row="0" Grid.Column="1" FontSize="60" FontWeight="DemiBold" Foreground="#ffffff" HorizontalAlignment="Center">Game Title Here</TextBlock>
+                        <Button Name="btnSave" Grid.Row="0" Grid.Column="2" Height="53" Width="51" Margin="0,0,0,0" VerticalAlignment="Center" Click="btnSave_Click" ToolTip="Save">
+                            <Image Height="50" Width="50" Source="/Resources/DisabledSave.png" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased" HorizontalAlignment="Center"/>
+                        </Button>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="400"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="515"/>
+                        </Grid.RowDefinitions>
+                        <Border Grid.Column="0" Grid.Row="0" Margin="10,0,0,0" BorderThickness="2" BorderBrush="Black">
+                            <Image Name="imgGameCover" Stretch="Fill" Source="/GameCovers/TheLastOfUs.jpg" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased"/>
+                        </Border>
+                        <StackPanel Grid.Column="1" Grid.Row="0" Margin="0,50,0,0">
+                            <Label HorizontalAlignment="Left" Foreground="#ffffff" FontSize="34" Margin="140,0,0,0">Progress Status:</Label>
+                            <ComboBox Name="cmbProgressStatus" Width="240" FontSize="34" FontFamily="SergoeUI" FontWeight="DemiBold" Height="50" Background="#ffffff" Margin="0,20,-55,0">
+                                <ComboBoxItem  Name="itemPlanToPlay" Background="#ffffff">Plan To Play</ComboBoxItem>
+                                <ComboBoxItem  Name="itemInProgress" Background="#ffffff">In Progress</ComboBoxItem>
+                                <ComboBoxItem Name="itemCompleted" Background="#ffffff">Completed</ComboBoxItem>
+                            </ComboBox>
+                            <Grid Margin="0,20,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Foreground="#ffffff" FontSize="34">Playthroughs:</Label>
+                                <TextBox Name="txtPlaythroughs" Grid.Row="0" Grid.Column="2" Width="100" Height="50" TextAlignment="Center" Margin="-80,0,0,0" Background="#ffffff" FontSize="34" FontFamily="Sergoe UI" FontWeight="DemiBold"></TextBox>
+                            </Grid>
+                            <Grid Margin="0,20,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Foreground="#ffffff" FontSize="34">My Rating:</Label>
+                                <TextBox Name="txtRating" Grid.Row="0" Grid.Column="2" Width="100" TextAlignment="Center" Height="50"  Margin="-80,0,0,0" Background="#ffffff" FontSize="34" FontFamily="Sergoe UI" FontWeight="DemiBold"></TextBox>
+                            </Grid>
+                            <Grid Margin="0,20,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="60"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Foreground="#ffffff" FontSize="34">0</Label>
+                                <Slider Thumb.DragCompleted="sliderRating_DragCompleted" Name="sliderRating" Grid.Row="0" Grid.Column="1" TickFrequency="1" Margin="0,10,0,0" TickPlacement="BottomRight" IsSnapToTickEnabled="True" Maximum="100"></Slider>
+                                <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" Foreground="#ffffff" FontSize="34">10</Label>
+                            </Grid>
+                            <Label HorizontalAlignment="Center" Foreground="#ffffff" FontSize="28" Margin="0,-20,0,0">Slide to quick rate.</Label>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2" Grid.Row="0">
+                            
+                        </StackPanel>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="375"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Foreground="#ffffff" FontSize="34">Game Information:</Label>
+                        <Border Grid.Row="1" Grid.Column="0" Margin="10,10,10,10" Background="#999999" BorderThickness="2" BorderBrush="Black">
+                            <Border BorderThickness="2" BorderBrush="#000000" Margin="10,10,10,10">
+                                <ScrollViewer Background="#ffffff" Height="331" Width="1468">
+                                    <TextBox IsReadOnly="True" TextWrapping="Wrap" BorderThickness="0" Name="txtGameInformation" Margin="15,0,0,0" Background="#ffffff" FontSize="28" FontFamily="Sergoe UI" FontWeight="DemiBold">game information here</TextBox>
+                                </ScrollViewer>
+                            </Border>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
         </DockPanel>
     </Grid>
 </Window>

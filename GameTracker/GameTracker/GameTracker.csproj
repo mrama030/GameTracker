@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>AppLogoIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -54,6 +57,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data.cs" />
     <Compile Include="TrackedGame.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -114,6 +118,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameCovers\Crysis2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AppLogoIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

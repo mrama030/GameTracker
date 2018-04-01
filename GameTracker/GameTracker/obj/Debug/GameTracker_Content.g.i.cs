@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("gamecovers/crysis2.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("applogoicon.ico")]
 
 
