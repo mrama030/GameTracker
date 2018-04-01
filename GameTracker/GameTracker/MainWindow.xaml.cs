@@ -72,16 +72,26 @@ namespace GameTracker
                 txtGameInformation.Text = game.gameInformation;
                 imgGameCover.Source = new BitmapImage(new Uri(game.imagePath, UriKind.Relative));
                 txtPlaythroughs.Text = game.numberOfPlaythroughs.ToString();
+                txtProgressNote.Text = game.progressNote;
+
+                if (String.IsNullOrWhiteSpace(game.ratingNote))
+                {
+                    txtRatingNote.Text = "None";
+                }
+                else
+                {
+                    txtRatingNote.Text = game.ratingNote;
+                }
 
                 if (game.myRating >= 0)
                 {
                     txtRating.Text = game.myRating.ToString();
-                    sliderRating.Value = Convert.ToInt32(game.myRating * 10);
+                    sliderRating.Value = game.myRating;
                 }
                 else
                 {
+                    sliderRating.Value = 0.0;
                     txtRating.Text = "None";
-                    sliderRating.Value = 0;
                 }
 
                 // Games are always created with Plan To Play status, so this attribute is never null.
