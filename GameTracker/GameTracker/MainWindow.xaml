@@ -384,7 +384,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Border Grid.Column="0" Grid.Row="0" Margin="0,20,0,-2" BorderThickness="2" BorderBrush="#000000">
-                            <Label Background="#cccccc" FontSize="18" FontWeight="DemiBold" FontFamily="Sergoe UI" Foreground="#000000" HorizontalContentAlignment="Center" Content="Tracked Video Games List"/>
+                            <Label Background="#ffffff" FontSize="20" FontWeight="Bold" FontFamily="Sergoe UI" Foreground="#000000" HorizontalContentAlignment="Center" Content="Tracked Games List"/>
                         </Border>
                         <Border Grid.Column="0" Grid.Row="1" BorderThickness="2" BorderBrush="#000000">
                             <ScrollViewer>
@@ -432,7 +432,7 @@
                         <Border Grid.Column="0" Grid.Row="0" Margin="10,0,0,0" BorderThickness="2" BorderBrush="Black">
                             <Image x:Name="imgGameCover" Stretch="Fill" Source="/GameCovers/TheLastOfUs.jpg" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased"/>
                         </Border>
-                        <StackPanel Grid.Column="1" Grid.Row="0" Margin="0,50,0,0">
+                        <StackPanel Grid.Column="1" Grid.Row="0" Margin="0,40,0,0">
                             <Label HorizontalAlignment="Left" Foreground="#ffffff" FontSize="34" Margin="140,0,0,0" Content="Progress Status:"/>
                             <ComboBox x:Name="cmbProgressStatus" SelectionChanged="cmbProgressStatus_SelectionChanged" ToolTip="Select a progress status for this game." Background="#ffffff" Width="240" FontSize="34" FontFamily="SergoeUI" FontWeight="DemiBold" Height="50" Margin="0,20,-55,0" Style="{DynamicResource ComboBoxStyle1}">
                                 <ComboBoxItem  x:Name="itemPlanToPlay" Content="Plan To Play"/>
@@ -450,7 +450,7 @@
                                 <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Foreground="#ffffff" FontSize="34" Content="Playthroughs:"/>
                                 <TextBox x:Name="txtPlaythroughs" PreviewTextInput="txtPlaythroughs_PreviewTextInput" TextChanged="txtPlaythroughs_TextChanged" MaxLength="3" ToolTip="Enter number of times game has been completed." Grid.Row="0" Grid.Column="2" Width="100" Height="50" TextAlignment="Center" Margin="-80,0,0,0" Background="#ffffff" FontSize="34" FontFamily="Sergoe UI" FontWeight="DemiBold"/>
                             </Grid>
-                            <Grid Margin="0,70,0,0">
+                            <Grid Margin="0,80,0,0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -508,7 +508,7 @@
                         <Border Grid.Row="1" Grid.Column="0" Margin="10,10,10,10" Background="#999999" BorderThickness="2" BorderBrush="Black">
                             <Border BorderThickness="2" BorderBrush="#000000" Margin="10,10,10,10">
                                 <ScrollViewer Background="#ffffff" Height="331" Width="1468">
-                                    <TextBox ToolTip="Information about selected game." IsReadOnly="True" TextWrapping="Wrap" BorderThickness="0" x:Name="txtGameInformation" Margin="15,0,0,0" Background="#ffffff" FontSize="34" FontFamily="Sergoe UI" FontWeight="DemiBold" Text="game information here"/>
+                                    <TextBox IsReadOnly="True" TextWrapping="Wrap" BorderThickness="0" x:Name="txtGameInformation" Margin="15,0,0,0" Background="#ffffff" FontSize="34" FontFamily="Sergoe UI" FontWeight="DemiBold" Text="game information here"/>
                                 </ScrollViewer>
                             </Border>
                         </Border>
