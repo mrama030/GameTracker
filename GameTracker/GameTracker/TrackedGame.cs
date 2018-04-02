@@ -13,7 +13,7 @@ namespace GameTracker
         public string listId;
         public string imagePath;
         public string gameTitle;
-        public bool hasUnsavedChanges; 
+        //public bool hasUnsavedChanges; 
         public ProgressStatus progressStatus;
         public string progressNote;
         public int numberOfPlaythroughs;
@@ -28,7 +28,7 @@ namespace GameTracker
             // Images must be within the project's folder.
             this.imagePath = "/" + imagePath;
             this.gameTitle = gameTitle;
-            this.hasUnsavedChanges = false;
+            //this.hasUnsavedChanges = false;
             this.progressStatus = progressStatus;
             this.progressNote = progressNote;
             this.numberOfPlaythroughs = numberOfPlaythroughs;
