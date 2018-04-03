@@ -104,7 +104,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\AppLogo.png" />
-    <Resource Include="Resources\ClickedMenu.png" />
     <Resource Include="Resources\DisabledSave.png" />
     <Resource Include="Resources\EnabledSave.png" />
     <Resource Include="Resources\Menu.png" />
@@ -122,6 +121,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\AppLogoIcon.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="AppLogoIcon.ico" />
