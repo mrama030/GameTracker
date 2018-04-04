@@ -1,4 +1,4 @@
-﻿<Window
+﻿<Window Keyboard.KeyDown="SaveKeyDown"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -417,7 +417,7 @@
                         </Button>
                         <TextBlock x:Name="txtTitle" Grid.Row="0" Grid.Column="1" FontSize="60" FontWeight="DemiBold" Foreground="#ffffff" HorizontalAlignment="Center"><Run Text="Game Title Here"/></TextBlock>
                         <Button x:Name="btnSave" Grid.Row="0" Grid.Column="2" BorderThickness="1" Background="#ffffff" Height="53" Width="51" Margin="0,0,0,0" VerticalAlignment="Center" Click="btnSave_Click" ToolTip="Save">
-                            <Image Name="imgSave" Height="50" Width="50" Source="/Resources/DisabledSave.png" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased" HorizontalAlignment="Center"/>
+                            <Image Name="imgSave" Height="50" Width="50" ToolTip="Save Changes (Ctrl+S)" Source="/Resources/DisabledSave.png" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased" HorizontalAlignment="Center"/>
                         </Button>
                     </Grid>
                     <Grid>

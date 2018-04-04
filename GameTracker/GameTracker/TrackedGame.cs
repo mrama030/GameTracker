@@ -26,7 +26,7 @@ namespace GameTracker
         {
             this.listId = "item" + gameTitle.Replace(" ", "");
             // Images must be within the project's folder.
-            this.imagePath = "/" + imagePath;
+            this.imagePath = imagePath;
             this.gameTitle = gameTitle;
             //this.hasUnsavedChanges = false;
             this.progressStatus = progressStatus;

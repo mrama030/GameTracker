@@ -15,8 +15,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-// Mohamed Ali Ramadan (7688825)
-
 namespace GameTracker
 {
     /// <summary>
@@ -25,8 +23,6 @@ namespace GameTracker
     public partial class MainWindow : Window
     {
         public static ListBoxItem previousSelectedGame;
-
-        //public static TrackedGame unsavedGameInstance;
 
         #region Initialization
 
@@ -74,7 +70,7 @@ namespace GameTracker
             {
                 if (t.listId == selectedGameId)
                 {
-                    selectedGame = t;
+                    selectedGame = new TrackedGame(t.imagePath, t.gameTitle, t.progressStatus, t.progressNote, t.numberOfPlaythroughs, t.myRating, t.ratingNote, t.gameInformation);
                     break;
                 }
             }
@@ -119,6 +115,10 @@ namespace GameTracker
                     enableSaveForGame();
 
                     return;
+                }
+                else
+                {
+                    previousSelectedGame = e.AddedItems[0] as ListBoxItem;
                 }
 
                 #endregion
@@ -207,7 +207,7 @@ namespace GameTracker
             {
                 if (t.listId == unsavedGameId)
                 {
-                    unsavedGame = t;
+                    unsavedGame = new TrackedGame(t.imagePath, t.gameTitle, t.progressStatus, t.progressNote, t.numberOfPlaythroughs, t.myRating, t.ratingNote, t.gameInformation);
                     break;
                 }
             }
@@ -341,8 +341,26 @@ namespace GameTracker
             previousSelectedGame = lstTrackedGames.SelectedItem as ListBoxItem;
         }
 
-        // Updates dummy database with the changes.
+        // Save by clicking the button.
         private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            saveGame();
+        }
+
+        // Save by using CTRL + S.
+        private void SaveKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.S && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                if (btnSave.IsEnabled == true)
+                {
+                    saveGame();
+                }
+            }
+        }
+
+        // Updates dummy database with the changes.
+        private void saveGame()
         {
             ListBoxItem lbi = (lstTrackedGames.SelectedItem as ListBoxItem);
 
@@ -442,51 +460,65 @@ namespace GameTracker
 
         #endregion
 
-        #region Other Non-Implemented
+        #region Non-Implemented (Out of Prototype Scope / Not Key Tasks)
 
         private void btnClearSearch_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void mnuAddGameFromDB_Click(object sender, RoutedEventArgs e)
-        {
-
+            // Disabled. Not in scope of key tasks.
         }
 
         private void mnuAddGameManually_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBoxResult result;
+            result = MessageBox.Show("Not available in prototype version.", "Add Game Manually", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
         }
 
         private void mnuFilter_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBoxResult result;
+            result = MessageBox.Show("Not available in prototype version.", "Edit List Filters", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
         }
 
         private void mnuSort_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void mnuAbout_Click(object sender, RoutedEventArgs e)
-        {
-
+            MessageBoxResult result;
+            result = MessageBox.Show("Not available in prototype version.", "List Sorting Options", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-
+            // Disabled. Not in scope of key tasks.
         }
 
         private void btnClearFilters_Click(object sender, RoutedEventArgs e)
         {
-
+            // Disabled. Not in scope of key tasks.
         }
+
+        #endregion
+
+        #region Information Windows (Help/About)
 
         private void btnHelp_Click(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult result;
+            result = MessageBox.Show("To add a game to your list, edit list sorting options, apply list filters or to learn more about the application, please use the main menu (white controller icon) to the top-left.\n\nTo search for a game, use the search bar located next to the main menu icon. \n\nTo clear an applied search or other filters, feel free to use the \"Clear Search\" and \"Clear Filters\" buttons below the search bar.\n\nBrowse through your tracked games by clicking upon any of the list items. You may also edit progress and rating information for your tracked games and save changes with the save button to the top right.", "Quick Help", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+        }
 
+        private void mnuAbout_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result;
+            result = MessageBox.Show("This is the prototype version of GameTracker 2018.\n\nThis application is designed to allow users to track their video games, personal ratings and progress information.\n\nThe following features are not supported in this version:\n\n\t- Add Game Manually\n\t- Edit List Filters\n\t- List Soring Options\n\t- Remove A Tracked Game\n\t- Search Tracked Games List\n\nDeveloped by Mohamed Ramadan for the SEG3125 course at University of Ottawa.", "About", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+
+        }
+
+        #endregion
+
+        #region Add Game From Dummy Online Database
+
+        private void mnuAddGameFromDB_Click(object sender, RoutedEventArgs e)
+        {
+            // To implement.
         }
 
         #endregion
