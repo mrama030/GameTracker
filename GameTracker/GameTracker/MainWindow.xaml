@@ -314,12 +314,12 @@
                                 <MenuItem.Header>
                                     <Image Width="120" Source="/Resources/Menu.png" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased"/>
                                 </MenuItem.Header>
-                                <MenuItem Click="mnuAddGameFromDB_Click" x:Name="mnuAddGameFromDB" FontSize="20" Header="Add Game From Database..." />
-                                <MenuItem Click="mnuAddGameManually_Click" x:Name="mnuAddGameManually" FontSize="20" Header="Add Game Manually..." />
-                                <MenuItem Click="mnuFilter_Click" x:Name="mnuFilter" FontSize="20" Header="Edit List Filters..."/>
-                                <MenuItem Click="mnuSort_Click" x:Name="mnuSort" FontSize="20" Header="List Sorting Options..."/>
+                                <MenuItem Click="mnuAddGameFromDB_Click" x:Name="mnuAddGameFromDB" FontSize="24" Header="Add Game From Database..." />
+                                <MenuItem Click="mnuAddGameManually_Click" x:Name="mnuAddGameManually" FontSize="24" Header="Add Game Manually..." />
+                                <MenuItem Click="mnuFilter_Click" x:Name="mnuFilter" FontSize="24" Header="Edit List Filters..."/>
+                                <MenuItem Click="mnuSort_Click" x:Name="mnuSort" FontSize="24" Header="List Sorting Options..."/>
                                 <Separator />
-                                <MenuItem Click="mnuAbout_Click" x:Name="mnuAbout" FontSize="20" Header="About"/>
+                                <MenuItem Click="mnuAbout_Click" x:Name="mnuAbout" FontSize="24" Header="About"/>
                             </MenuItem>
                         </Menu>
                         <TextBox Grid.Row="0" Grid.Column="1" Height="30" Width="220" HorizontalAlignment="Right" FontSize="16" FontWeight="DemiBold"/>
@@ -395,7 +395,7 @@
                                 </ListBox>
                             </ScrollViewer>
                         </Border>
-                        <Label Grid.Column="0" Grid.Row="2" Margin="0,5,0,0" FontSize="18" FontWeight="DemiBold" FontFamily="Sergoe UI" Foreground="#ffffff" HorizontalContentAlignment="Center" FontStyle="Italic" Content="Displaying 3 out of 3 Tracked Games"/>
+                        <Label Grid.Column="0" Grid.Row="2" Margin="0,0,0,0" FontSize="18" FontWeight="DemiBold" FontFamily="Sergoe UI" Foreground="#ffffff" HorizontalContentAlignment="Center" FontStyle="Italic" Content="Displaying 3 out of 3 Tracked Games"/>
                     </Grid>
                 </StackPanel>
             </Border>

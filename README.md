@@ -1,2 +1,2 @@
 # Project_SEG3125
-Final Project SEG 3125 Prototype
+SEG3125 - High Fidelity Prototype for Phase 3 of UI Project

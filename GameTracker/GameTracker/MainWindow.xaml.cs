@@ -15,6 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+// Mohamed Ali Ramadan (7688825)
+
 namespace GameTracker
 {
     /// <summary>
@@ -22,6 +24,12 @@ namespace GameTracker
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static ListBoxItem previousSelectedGame;
+
+        //public static TrackedGame unsavedGameInstance;
+
+        #region Initialization
+
         // Initial startup and startup settings.
         public MainWindow()
         {
@@ -43,7 +51,11 @@ namespace GameTracker
             lstTrackedGames.SelectedItem = itemCrysis2;
         }
 
-        // Gets the entity in the dummy database representing the selected game.
+        #endregion
+
+        #region Methods for changing game selection and refreshing UI.
+
+        // Gets the entity in the dummy database representing the currently selected game.
         private TrackedGame getSelectedGame()
         {
             ListBoxItem lbi = (lstTrackedGames.SelectedItem as ListBoxItem);
@@ -69,8 +81,6 @@ namespace GameTracker
 
             return selectedGame;
         }
-        
-        #region Methods for changing game selection and refreshing UI.
 
         // Detects a change of which game is selected in the list and displays the newly selected game.
         private void lstTrackedGames_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -78,13 +88,40 @@ namespace GameTracker
             // Check for unsaved changes first.
             if (btnSave.IsEnabled == true)
             {
-                MessageBoxResult result;
-                result = MessageBox.Show("Unsaved changes were detected. Switching games without saving will cause these changes to be lost. Are you sure you want to switch games without saving?", "Unsaved Changes - On Game Switch", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                if (result != MessageBoxResult.Yes)
+                // Required to avoid recursive warning messages.
+                if (e.AddedItems[0] as ListBoxItem == previousSelectedGame)
                 {
                     return;
                 }
+
+                MessageBoxResult result;
+                result = MessageBox.Show("Discard changes and switch games?", "Unsaved Changes Detected", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
+
+                #region Resets Selection + Code Required So Changes Are Not Lost On Game Switch
+
+                // User does not want to discard changes.
+                if (result != MessageBoxResult.Yes)
+                {
+                    ListBoxItem removedItem = e.RemovedItems[0] as ListBoxItem;
+
+                    TrackedGame toRestore = getUnsavedGameInstance(removedItem);
+
+                    // Reset the selection to the game before game switch attempt.
+                    lstTrackedGames.SelectedValue = e.RemovedItems[0];
+
+                    // The UI will be refreshed to the game data that is in the dummy database,
+                    // and will lost the user's changes at this point.
+
+                    // Restore changes to UI using refresh function and unsaved TrackedGame instance.
+                    refreshGameSection(toRestore);
+
+                    // Enable the save button (as it is disabled on a refresh).
+                    enableSaveForGame();
+
+                    return;
+                }
+
+                #endregion
             }
 
             TrackedGame selected = getSelectedGame();
@@ -150,7 +187,65 @@ namespace GameTracker
             }
         }
 
+        /// <summary>
+        /// Called when the user decides not to discard changes on game switch.
+        /// Creates a TrackedGame object representing the unsaved changes of the user,
+        /// By using static attributes from the dummy database (ex: image path) and 
+        /// attributes from the UI (for the user modifiable attributes).
+        /// </summary>
+        /// <param name="unsavedSelection"></param>
+        /// <returns>Temporary TrackedGame object used to refresh the UI back to the user's changes.</returns>        
+        private TrackedGame getUnsavedGameInstance(ListBoxItem unsavedSelection)
+        {
+            string unsavedGameId = unsavedSelection.Name;
+
+            // Tracked Game object
+            TrackedGame unsavedGame = null;
+
+            // Obtain the game from the dummy database using the listID of the selected game.
+            foreach (TrackedGame t in Data.trackedGamesList)
+            {
+                if (t.listId == unsavedGameId)
+                {
+                    unsavedGame = t;
+                    break;
+                }
+            }
+
+            // Update the TrackedGame object with the unsaved changes of the user.
+
+            if (txtRating.Text == "None")
+            {
+                unsavedGame.myRating = -1;
+            }
+            else
+            {
+                unsavedGame.myRating = Double.Parse(txtRating.Text);
+            }
+
+            unsavedGame.numberOfPlaythroughs = Int32.Parse(txtPlaythroughs.Text);
+            unsavedGame.progressNote = txtProgressNote.Text;
+            unsavedGame.ratingNote = txtRatingNote.Text;
+
+            if (cmbProgressStatus.SelectedItem == itemCompleted)
+            {
+                unsavedGame.progressStatus = ProgressStatus.Completed;
+            }
+            else if (cmbProgressStatus.SelectedItem == itemInProgress)
+            {
+                unsavedGame.progressStatus = ProgressStatus.InProgress;
+            }
+            else if (cmbProgressStatus.SelectedItem == itemPlanToPlay)
+            {
+                unsavedGame.progressStatus = ProgressStatus.PlanToPlay;
+            }
+
+            return unsavedGame;
+        }
+
         #endregion
+
+        #region Application Exit Messages
 
         // Prevents closing application if changes are pending. Asks user if he wants to discard and close application or cancel.
         void MainWindow_Closing(object sender, CancelEventArgs e)
@@ -159,7 +254,7 @@ namespace GameTracker
 
             if (btnSave.IsEnabled == true)
             {
-                result = MessageBox.Show("Unsaved changes were detected. Exiting the application now will cause these changes to be lost. Are you sure you want to leave without saving?", "Unsaved Changes - On Exit", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                result = MessageBox.Show("Discard changes and exit?", "Unsaved Changes Detected", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
             }
             else
             {
@@ -176,6 +271,8 @@ namespace GameTracker
                 e.Cancel = true;
             }
         }
+
+        #endregion
 
         #region Events that detect changes to save.
 
@@ -241,6 +338,7 @@ namespace GameTracker
             btnSave.BorderThickness = new Thickness(1, 1, 1, 1);
             btnSave.Background = Brushes.White;
             imgSave.Source = new BitmapImage(new Uri("/Resources/EnabledSave.png", UriKind.Relative));
+            previousSelectedGame = lstTrackedGames.SelectedItem as ListBoxItem;
         }
 
         // Updates dummy database with the changes.
