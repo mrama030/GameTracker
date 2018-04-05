@@ -192,7 +192,9 @@ namespace GameTracker
             item.Name = t.listId;
 
             MainWindow.mainWindow.lstTrackedGames.Items.Add(item);
-            MainWindow.mainWindow.txtSortingInfo.Content = "Unsorted";
+            MainWindow.mainWindow.txtSortingInfo.Content = "None (not supported)";
+            int count = MainWindow.mainWindow.lstTrackedGames.Items.Count;
+            MainWindow.mainWindow.txtTrackedGamesCount.Content = "Displaying " + count + " out of " + count + " Tracked Games";
         }
     }
 }
