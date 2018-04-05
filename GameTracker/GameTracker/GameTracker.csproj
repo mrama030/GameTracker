@@ -58,8 +58,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddGameFromDB.xaml.cs">
+      <DependentUpon>AddGameFromDB.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Data.cs" />
     <Compile Include="TrackedGame.cs" />
+    <Page Include="AddGameFromDB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -127,6 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="AppLogoIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameCovers\MassEffect2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,70 @@
+﻿<Window x:Class="GameTracker.AddGameFromDB"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameTracker"
+        mc:Ignorable="d"
+        Title="Add Game From Database" Height="700" Width="600"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#333333">
+    <Grid>
+        <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width ="5*"/>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Foreground="#ffffff" FontSize="34" Content="Game Title:"></Label>
+                <TextBox Grid.Row="0" Grid.Column="1" Name="txtDatabaseSearch" TextChanged="txtDatabaseSearch_TextChanged"  Height="40" Width="230" HorizontalAlignment="Right" FontSize="22" FontWeight="DemiBold" MaxLength="100" ToolTip="Enter a game's title to add."/>
+                <Button Grid.Row="0" Grid.Column="2" x:Name="btnSearchDB" Click="btnSearchDB_Click" ToolTip="Search Database" Background="#ffffff" Width="40" Height="40" HorizontalAlignment="Left">
+                    <Image Height="35" Width="35" Source="/Resources/Search.png" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased"/>
+                </Button>
+                <Button Grid.Row="0" Grid.Column="3" Name="btnClearDBSearch" Click="btnClearDBSearch_Click" Height="30" Width="100" FontSize="16" FontFamily="Sergoe UI" FontWeight="DemiBold" Background="#ffffff" Content="Clear Search"></Button>
+            </Grid>
+            <Label Name="txtNumResultsFound" Margin="0,10,30,0" HorizontalAlignment="Right" Foreground="#ffffff" FontSize="20" Content="Results found:"></Label>
+            <Border Margin="8,0,8,0" BorderThickness="2" BorderBrush="#000000">
+                <Label Background="#ffffff" FontSize="24" FontWeight="Bold" FontFamily="Sergoe UI" Foreground="#000000" HorizontalContentAlignment="Center" Content="Search Results"/>
+            </Border>
+            <ScrollViewer Margin="10,0,10,0">
+                <ListBox x:Name="lstDBSearchResults" SelectionChanged="lstDBSearchResults_SelectionChanged" Height="200" Background="#ffffff" FontSize="20" FontWeight="DemiBold" FontFamily="Sergoe UI" Foreground="#000000" BorderThickness="0"></ListBox>
+            </ScrollViewer>
+            <!-- Selected Result Information -->
+            <Grid Margin="0,15,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="250"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width ="2*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Grid.Row="0" Margin="10,0,0,0" BorderThickness="2" BorderBrush="Black" Background="#ffffff">
+                    <Image x:Name="imgResult" Stretch="Fill" Source="/Resources/NoImage.png" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased"/>
+                </Border>
+                <Border Grid.Row="0" Grid.Column="1" Margin="10,0,10,0" Background="#999999" BorderThickness="2" BorderBrush="Black">
+                    <Border BorderThickness="2" BorderBrush="#000000" Margin="10,10,10,10">
+                        <ScrollViewer Name="scrollResultInfo" Background="#ffffff">
+                            <TextBox IsReadOnly="True" TextWrapping="Wrap" BorderThickness="0" x:Name="txtResultInformation" Margin="5,0,0,0" Background="#ffffff" FontSize="20" FontFamily="Sergoe UI" FontWeight="DemiBold" Text="Perform a search and select an item to add from the results."/>
+                        </ScrollViewer>
+                    </Border>
+                </Border>
+            </Grid>
+            <!-- Add and Cancel buttons -->
+            <Grid Margin="0,10,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width ="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" Name="btnAdd" Click="btnAdd_Click" HorizontalAlignment="Right" Margin="0,0,10,0" Height="35" Width="120" FontSize="20" FontFamily="Sergoe UI" FontWeight="DemiBold" Background="#ffffff" Content="Add Game"></Button>
+                <Button Grid.Row="0" Grid.Column="1" Name="btnCancelAdd" Click="btnCancelAdd_Click" HorizontalAlignment="Left" Margin="10,0,0,0" Height="35" Width="120" FontSize="20" FontFamily="Sergoe UI" FontWeight="DemiBold" Background="#ffffff" Content="Cancel"></Button>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("applogoicon.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("gamecovers/masseffect2.jpg")]
 
 

@@ -22,6 +22,7 @@ namespace GameTracker
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow mainWindow;
         public static ListBoxItem previousSelectedGame;
 
         #region Initialization
@@ -45,6 +46,9 @@ namespace GameTracker
 
             // Select Crysis 2 as startup game. (First list item.)
             lstTrackedGames.SelectedItem = itemCrysis2;
+
+            // Allows other windows to modify this window.
+            mainWindow = this;
         }
 
         #endregion
@@ -147,7 +151,6 @@ namespace GameTracker
                 txtGameInformation.Text = game.gameInformation;
                 imgGameCover.Source = new BitmapImage(new Uri(game.imagePath, UriKind.Relative));
                 txtPlaythroughs.Text = game.numberOfPlaythroughs.ToString();
-                txtProgressNote.Text = game.progressNote;
 
                 if (String.IsNullOrWhiteSpace(game.ratingNote))
                 {
@@ -156,6 +159,15 @@ namespace GameTracker
                 else
                 {
                     txtRatingNote.Text = game.ratingNote;
+                }
+
+                if (String.IsNullOrWhiteSpace(game.progressNote))
+                {
+                    txtProgressNote.Text = "None";
+                }
+                else
+                {
+                    txtProgressNote.Text = game.progressNote;
                 }
 
                 if (game.myRating >= 0)
@@ -184,6 +196,9 @@ namespace GameTracker
                 }
 
                 disableSaveForGame();
+
+                // Important for scrolling back to top for game swtiching.
+                scrollGameInfo.ScrollToTop();
             }
         }
 
@@ -518,7 +533,8 @@ namespace GameTracker
 
         private void mnuAddGameFromDB_Click(object sender, RoutedEventArgs e)
         {
-            // To implement.
+            AddGameFromDB windowAdd = new AddGameFromDB();
+            windowAdd.ShowDialog();
         }
 
         #endregion

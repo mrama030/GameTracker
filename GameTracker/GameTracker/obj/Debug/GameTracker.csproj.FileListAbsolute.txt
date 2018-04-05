@@ -28,3 +28,5 @@ C:\Users\MohamedRamadan\Documents\GitHub\Project_SEG3125\GameTracker\GameTracker
 C:\Users\MohamedRamadan\Documents\GitHub\Project_SEG3125\GameTracker\GameTracker\obj\Debug\GameTracker.csproj.CoreCompileInputs.cache
 C:\Users\MohamedRamadan\Documents\GitHub\Project_SEG3125\GameTracker\GameTracker\obj\Debug\GameTracker.exe
 C:\Users\MohamedRamadan\Documents\GitHub\Project_SEG3125\GameTracker\GameTracker\obj\Debug\GameTracker.pdb
+C:\Users\MohamedRamadan\Documents\GitHub\Project_SEG3125\GameTracker\GameTracker\obj\Debug\AddGameFromDB.g.cs
+C:\Users\MohamedRamadan\Documents\GitHub\Project_SEG3125\GameTracker\GameTracker\obj\Debug\AddGameFromDB.baml

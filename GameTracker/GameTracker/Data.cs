@@ -8,12 +8,17 @@ namespace GameTracker
 {
     public static class Data
     {
+        // List dummy database.
         public static List<TrackedGame> trackedGamesList;
+        // Online dummy database.
+        public static List<TrackedGame> dummyGamesDatabase;
 
         static Data()
         {
             // Initialize list of existing tracked games.
             trackedGamesList = new List<TrackedGame>();
+            // Initialize online dummy database with 2 additional games.
+            dummyGamesDatabase = new List<TrackedGame>();
 
             string tempPath = "/GameCovers/Crysis2.jpg";
             string tempProgressNote = "Beat the game, but did not unlock 100% of unlockables yet.";
@@ -39,6 +44,21 @@ namespace GameTracker
             trackedGamesList.Add(crysis2);
             trackedGamesList.Add(gearsOfWar4);
             trackedGamesList.Add(theLastOfUs);
+
+            tempPath = "/GameCovers/MassEffect2.jpg";
+            tempGameInfo = "\nRelease Date: 2010-01-26\nGenre(s): Shooter, Role-playing(RPG), Simulator\nDeveloper(s): BioWare, BioWare Edmonton\nPublisher(s): Electronic Arts\nPlatform(s): PC, PS3, XBOX 360\nGameplay Mode(s): Single Player\n\nDescription:\nAre you prepared to lose everything to save the galaxy? You'll need to be, Commander Shephard. It's time to bring together your greatest allies and recruit the galaxy's fighting elite to continue the resistance against the invading Reapers. So steel yourself, because this is an astronomical mission where sacrifices must be made. You'll face tougher choices and new, deadlier enemies. Arm yourself and prepare for an unforgettable intergalactic adventure.\n";
+            TrackedGame massEffect2 = new TrackedGame(tempPath, "Mass Effect 2", ProgressStatus.PlanToPlay, "", 0, -1, "", tempGameInfo);
+            
+            tempPath = "/GameCovers/MassEffect3.png";
+            tempGameInfo = "\nRelease Date: 2012-03-06\nGenre(s): Shooter, Role-playing(RPG), Simulator\nDeveloper(s): BioWare, BioWare Edmonton\nPublisher(s): Electronic Arts\nPlatform(s): PC, PS3, XBOX 360\nGameplay Mode(s): Single Player\n\nDescription:\nEarth is burning.The Reapers have taken over and other civilizations are falling like dominoes. Lead the final fight to save humanity and take back Earth from these terrifying machines, Commander Shepard. You'll need backup for these battles. Fortunately, the galaxy has a habit of sending unexpected species your way. Recruit team members and forge new alliances, but be prepared to say goodbye at any time as partners make the ultimate sacrifice. It's time for Commander Shepard to fight for the fate of the human race and save the galaxy. No pressure, Commander.\n";
+            TrackedGame massEffect3 = new TrackedGame(tempPath, "Mass Effect 3", ProgressStatus.PlanToPlay, "", 0, -1, "", tempGameInfo);
+            
+            // Sorted by default.
+            dummyGamesDatabase.Add(crysis2);
+            dummyGamesDatabase.Add(gearsOfWar4);
+            dummyGamesDatabase.Add(massEffect2);
+            dummyGamesDatabase.Add(massEffect3);
+            dummyGamesDatabase.Add(theLastOfUs);
         }
     }
 }
